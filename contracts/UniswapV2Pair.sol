@@ -31,7 +31,9 @@ contract UniswapV2Pair is IUniswapV2Pair, UniswapV2ERC20 {
     uint256 public override price0CumulativeLast;
     uint256 public override price1CumulativeLast;
     uint256 public override kLast; // reserve0 * reserve1, as of immediately after the most recent liquidity event
-
+    
+    bytes32 public constant INIT_CODE_PAIR_HASH = keccak256(abi.encodePacked(type(UniswapV2Pair).creationCode));
+    
     uint256 private unlocked = 1;
     modifier lock() {
         require(unlocked == 1, "UniswapV2: LOCKED");
