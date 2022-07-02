@@ -34,3 +34,4 @@ interface IUniswapV2Factory {
 
     function PAIR_HASH() external view returns(bytes32);
 }
+
